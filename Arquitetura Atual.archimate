@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:archimate="http://www.archimatetool.com/archimate"
+                 name="Arquitetura Atual - Venda Geral"
+                 id="id-model-atual-vg"
+                 version="5.0.0">
+
+  <folder name="Business" id="id-folder-business" type="business">
+    <element xsi:type="archimate:BusinessProcess" name="Realizar Planejamento Estratégico" id="planejamento_estrategico"/>
+    <element xsi:type="archimate:BusinessProcess" name="Planejar Ações de Marketing" id="planejar_marketing"/>
+    <element xsi:type="archimate:BusinessProcess" name="Estabelecer Parcerias" id="estabelecer_parcerias"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Relacionamento com Consumidores" id="gerir_consumidores"/>
+    <element xsi:type="archimate:BusinessProcess" name="Vender Cupons" id="vender_cupons"/>
+    <element xsi:type="archimate:BusinessProcess" name="Implementar Campanhas" id="implementar_campanhas"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Finanças" id="gerir_financas"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Contratos" id="gerir_contratos"/>
+    <element xsi:type="archimate:BusinessProcess" name="Prover Assessoria Jurídica" id="prover_juridico"/>
+    <element xsi:type="archimate:BusinessProcess" name="Provisionar Soluções de TI" id="provisionar_ti"/>
+  </folder>
+
+  <folder name="Application" id="id-folder-application" type="application">
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Ger. de Projetos" id="sgp"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Google Ads" id="google_ads"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Registro de Negociação" id="sran"/>
+    <element xsi:type="archimate:ApplicationComponent" name="CRM" id="crm"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Venda de Cupons" id="e_commerce"/>
+    <element xsi:type="archimate:ApplicationComponent" name="ERP - Módulo Financeiro" id="erp_financeiro"/>
+    <element xsi:type="archimate:ApplicationComponent" name="ERP - Módulo Contratos" id="erp_contratos"/>
+  </folder>
+
+  <folder name="Relations" id="id-folder-relations" type="relations">
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-1" source="sgp" target="planejamento_estrategico"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-2" source="sgp" target="planejar_marketing"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-3" source="google_ads" target="planejar_marketing"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-4" source="sran" target="estabelecer_parcerias"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-5" source="crm" target="gerir_consumidores"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-6" source="e_commerce" target="vender_cupons"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-7" source="sgp" target="implementar_campanhas"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-8" source="erp_financeiro" target="gerir_financas"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-9" source="erp_contratos" target="gerir_contratos"/>
+    <element xsi:type="archimate:ServingRelationship" id="rel-serves-10" source="sgp" target="provisionar_ti"/>
+  </folder>
+
+  <folder name="Views" id="id-folder-views" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Arquitetura Atual - Venda Geral" id="id-view-main">
+      <child xsi:type="archimate:Group" name="Processos de Estratégia" id="view-group-1"> <bounds x="20" y="20" width="540" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-planejamento_estrategico" archimateElement="planejamento_estrategico"> <bounds x="30" y="50" width="220" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-planejar_marketing" archimateElement="planejar_marketing"> <bounds x="280" y="50" width="220" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Processos Core Business" id="view-group-2"> <bounds x="20" y="160" width="1120" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-estabelecer_parcerias" archimateElement="estabelecer_parcerias"> <bounds x="30" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-gerir_consumidores" archimateElement="gerir_consumidores"> <bounds x="300" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-vender_cupons" archimateElement="vender_cupons"> <bounds x="570" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-implementar_campanhas" archimateElement="implementar_campanhas"> <bounds x="840" y="50" width="240" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Processos de Suporte" id="view-group-3"> <bounds x="20" y="300" width="1120" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-gerir_financas" archimateElement="gerir_financas"> <bounds x="30" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-gerir_contratos" archimateElement="gerir_contratos"> <bounds x="300" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-prover_juridico" archimateElement="prover_juridico"> <bounds x="570" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-provisionar_ti" archimateElement="provisionar_ti"> <bounds x="840" y="50" width="240" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Aplicações" id="view-group-4"> <bounds x="20" y="440" width="860" height="220"/>
+        <child xsi:type="archimate:DiagramObject" id="view-sgp" archimateElement="sgp"> <bounds x="30" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-google_ads" archimateElement="google_ads"> <bounds x="300" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-sran" archimateElement="sran"> <bounds x="570" y="50" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-crm" archimateElement="crm"> <bounds x="30" y="140" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-e_commerce" archimateElement="e_commerce"> <bounds x="300" y="140" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-erp_financeiro" archimateElement="erp_financeiro"> <bounds x="570" y="140" width="240" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-erp_contratos" archimateElement="erp_contratos"> <bounds x="570" y="80" width="240" height="55"/> </child> 
+      </child>
+      
+      <child xsi:type="archimate:Connection" id="view-rel-serves-1" source="view-sgp" target="view-planejamento_estrategico" archimateRelationship="rel-serves-1"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-2" source="view-sgp" target="view-planejar_marketing" archimateRelationship="rel-serves-2"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-3" source="view-google_ads" target="view-planejar_marketing" archimateRelationship="rel-serves-3"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-4" source="view-sran" target="view-estabelecer_parcerias" archimateRelationship="rel-serves-4"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-5" source="view-crm" target="view-gerir_consumidores" archimateRelationship="rel-serves-5"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-6" source="view-e_commerce" target="view-vender_cupons" archimateRelationship="rel-serves-6"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-7" source="view-sgp" target="view-implementar_campanhas" archimateRelationship="rel-serves-7"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-8" source="view-erp_financeiro" target="view-gerir_financas" archimateRelationship="rel-serves-8"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-9" source="view-erp_contratos" target="view-gerir_contratos" archimateRelationship="rel-serves-9"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-10" source="view-sgp" target="view-provisionar_ti" archimateRelationship="rel-serves-10"/>
+    </element>
+  </folder>
+</archimate:model>
