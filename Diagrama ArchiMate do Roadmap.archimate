@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:archimate="http://www.archimatetool.com/archimate"
+                 name="Roadmap de Implementação"
+                 id="id-c9f5f6d8a4b34b6b8d4f0c8e2a3b1a2b"
+                 version="5.0.0">
+
+  <folder name="Implementation &amp; Migration" id="id-folder-impl" type="implementation_migration">
+    
+    <element xsi:type="archimate:Plateau" name="Arquitetura Atual" id="id-plateau-atual"/>
+    <element xsi:type="archimate:Plateau" name="Arquitetura Futura" id="id-plateau-futura"/>
+    <element xsi:type="archimate:Gap" name="Sistemas de Suporte Duplicados e Desintegrados" id="id-gap-inicial"/>
+    <element xsi:type="archimate:Gap" name="Arquitetura Otimizada e Integrada" id="id-gap-final"/>
+    <element xsi:type="archimate:Plateau" name="Plateau 1: Fundação e Integração Financeira" id="id-p1"/>
+    <element xsi:type="archimate:Plateau" name="Plateau 2: Visão 360º do Cliente" id="id-p2"/>
+    <element xsi:type="archimate:Plateau" name="Plateau 3: Otimização" id="id-p3"/>
+    <element xsi:type="archimate:WorkPackage" name="Definir Governança" id="id-wp1-1"/>
+    <element xsi:type="archimate:WorkPackage" name="Migrar Finanças para ERP" id="id-wp1-2"/>
+    <element xsi:type="archimate:WorkPackage" name="API de Integração Financeira" id="id-wp1-3"/>
+    <element xsi:type="archimate:WorkPackage" name="Migrar Clientes para CRM" id="id-wp2-1"/>
+    <element xsi:type="archimate:WorkPackage" name="Integrar Vendas ao CRM" id="id-wp2-2"/>
+    <element xsi:type="archimate:WorkPackage" name="Campanhas de Cross-Sell" id="id-wp2-3"/>
+    <element xsi:type="archimate:WorkPackage" name="Descomissionar Sistemas ZPE" id="id-wp3-1"/>
+    <element xsi:type="archimate:WorkPackage" name="Racionalizar Contratos" id="id-wp3-2"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p1-wp11" source="id-p1" target="id-wp1-1"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p1-wp12" source="id-p1" target="id-wp1-2"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p1-wp13" source="id-p1" target="id-wp1-3"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p2-wp21" source="id-p2" target="id-wp2-1"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p2-wp22" source="id-p2" target="id-wp2-2"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p2-wp23" source="id-p2" target="id-wp2-3"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p3-wp31" source="id-p3" target="id-wp3-1"/>
+    <element xsi:type="archimate:AggregationRelationship" id="rel-agg-p3-wp32" source="id-p3" target="id-wp3-2"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-atual-gap" source="id-plateau-atual" target="id-gap-inicial"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-gap-p1" source="id-gap-inicial" target="id-p1"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-p1-p2" source="id-p1" target="id-p2"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-p2-p3" source="id-p2" target="id-p3"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-p3-gap" source="id-p3" target="id-gap-final"/>
+    <element xsi:type="archimate:TriggeringRelationship" id="rel-trig-gap-futura" source="id-gap-final" target="id-plateau-futura"/>
+  </folder>
+  
+  <folder name="Views" id="id-folder-views" type="diagrams">
+    
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Roadmap de Implementação" id="id-view-roadmap">
+      <child xsi:type="archimate:DiagramObject" id="view-plateau-atual" archimateElement="id-plateau-atual">
+        <bounds x="24" y="240" width="120" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-gap-inicial" archimateElement="id-gap-inicial">
+        <bounds x="180" y="240" width="130" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-p1" archimateElement="id-p1" textPosition="1">
+        <bounds x="348" y="156" width="180" height="220"/>
+        <child xsi:type="archimate:DiagramObject" id="view-wp1-1" archimateElement="id-wp1-1"><bounds x="24" y="48" width="132" height="49"/></child>
+        <child xsi:type="archimate:DiagramObject" id="view-wp1-2" archimateElement="id-wp1-2"><bounds x="24" y="108" width="132" height="49"/></child>
+        <child xsi:type="archimate:DiagramObject" id="view-wp1-3" archimateElement="id-wp1-3"><bounds x="24" y="168" width="132" height="49"/></child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-p2" archimateElement="id-p2" textPosition="1">
+        <bounds x="564" y="156" width="180" height="220"/>
+        <child xsi:type="archimate:DiagramObject" id="view-wp2-1" archimateElement="id-wp2-1"><bounds x="24" y="48" width="132" height="49"/></child>
+        <child xsi:type="archimate:DiagramObject" id="view-wp2-2" archimateElement="id-wp2-2"><bounds x="24" y="108" width="132" height="49"/></child>
+        <child xsi:type="archimate:DiagramObject" id="view-wp2-3" archimateElement="id-wp2-3"><bounds x="24" y="168" width="132" height="49"/></child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-p3" archimateElement="id-p3" textPosition="1">
+        <bounds x="780" y="156" width="180" height="160"/>
+        <child xsi:type="archimate:DiagramObject" id="view-wp3-1" archimateElement="id-wp3-1"><bounds x="24" y="48" width="132" height="49"/></child>
+        <child xsi:type="archimate:DiagramObject" id="view-wp3-2" archimateElement="id-wp3-2"><bounds x="24" y="108" width="132" height="49"/></child>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-gap-final" archimateElement="id-gap-final">
+        <bounds x="996" y="240" width="130" height="55"/>
+      </child>
+      <child xsi:type="archimate:DiagramObject" id="view-plateau-futura" archimateElement="id-plateau-futura">
+        <bounds x="1164" y="240" width="120" height="55"/>
+      </child>
+      
+      <child xsi:type="archimate:Connection" id="conn-trig-atual-gap" source="view-plateau-atual" target="view-gap-inicial" archimateRelationship="rel-trig-atual-gap"/>
+      <child xsi:type="archimate:Connection" id="conn-trig-gap-p1" source="view-gap-inicial" target="view-p1" archimateRelationship="rel-trig-gap-p1"/>
+      <child xsi:type="archimate:Connection" id="conn-trig-p1-p2" source="view-p1" target="view-p2" archimateRelationship="rel-trig-p1-p2"/>
+      <child xsi:type="archimate:Connection" id="conn-trig-p2-p3" source="view-p2" target="view-p3" archimateRelationship="rel-trig-p2-p3"/>
+      <child xsi:type="archimate:Connection" id="conn-trig-p3-gap" source="view-p3" target="view-gap-final" archimateRelationship="rel-trig-p3-gap"/>
+      <child xsi:type="archimate:Connection" id="conn-trig-gap-futura" source="view-gap-final" target="view-plateau-futura" archimateRelationship="rel-trig-gap-futura"/>
+    </element>
+  </folder>
+</archimate:model>

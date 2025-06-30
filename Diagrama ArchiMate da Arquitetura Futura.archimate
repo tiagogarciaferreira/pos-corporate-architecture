@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archimate:model xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:archimate="http://www.archimatetool.com/archimate"
+                 name="Arquitetura Futura (Modelo Diversidade)"
+                 id="id-model-futura"
+                 version="5.0.0">
+
+  <folder name="Business" id="id-folder-business" type="business">
+    <element xsi:type="archimate:BusinessProcess" name="Realizar Planejamento Estratégico (Unificado)" id="planejamento_estrategico_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Planejar Ações de Marketing (Unificado)" id="marketing_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Finanças (Unificado)" id="financas_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Relacionamento com Clientes (Unificado)" id="crm_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Jurídico &amp; Contratos (Unificado)" id="juridico_contratos_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Provisionar Soluções de TI (Unificado)" id="ti_unif"/>
+    <element xsi:type="archimate:BusinessProcess" name="Estabelecer Parcerias" id="core_vg_parceria"/>
+    <element xsi:type="archimate:BusinessProcess" name="Vender Cupons" id="core_vg_venda"/>
+    <element xsi:type="archimate:BusinessProcess" name="Vender Produtos" id="core_zpe_venda"/>
+    <element xsi:type="archimate:BusinessProcess" name="Faturar e Entregar Pedido" id="core_zpe_fatura_entrega"/>
+    <element xsi:type="archimate:BusinessProcess" name="Gerir Estoque e Logística" id="core_zpe_estoque"/>
+  </folder>
+
+  <folder name="Application" id="id-folder-application" type="application">
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Ger. de Projetos (Mantido)" id="sgp"/>
+    <element xsi:type="archimate:ApplicationComponent" name="ERP Unificado (VG)" id="erp_unif"/>
+    <element xsi:type="archimate:ApplicationComponent" name="CRM Unificado (VG)" id="crm_unif_app"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sis. Registro Negociação (Mantido)" id="sran"/>
+    <element xsi:type="archimate:ApplicationComponent" name="E-commerce Cupons (VG - Mantido)" id="e_commerce_vg"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Pedidos (ZPE - Mantido)" id="sis_pedidos_zpe"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Distribuição (ZPE - Mantido)" id="sis_dist_zpe"/>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Finanças (ZPE - Removido)" id="sis_fin_zpe">
+      <property key="Stereotype" value="removido"/>
+    </element>
+    <element xsi:type="archimate:ApplicationComponent" name="Sistema de Clientes (ZPE - Removido)" id="sis_cli_zpe">
+      <property key="Stereotype" value="removido"/>
+    </element>
+    <element xsi:type="archimate:ApplicationCollaboration" name="Integração Financeira" id="int_pedidos_erp"/>
+    <element xsi:type="archimate:ApplicationCollaboration" name="Sincronização de Clientes" id="int_vendas_crm"/>
+  </folder>
+
+  <folder name="Relations" id="id-folder-relations" type="relations">
+    <element xsi:type="archimate:ServingRelationship" source="sgp" target="planejamento_estrategico_unif" id="rel-serves-1"/>
+    <element xsi:type="archimate:ServingRelationship" source="sgp" target="marketing_unif" id="rel-serves-2"/>
+    <element xsi:type="archimate:ServingRelationship" source="erp_unif" target="financas_unif" id="rel-serves-3"/>
+    <element xsi:type="archimate:ServingRelationship" source="erp_unif" target="juridico_contratos_unif" id="rel-serves-4"/>
+    <element xsi:type="archimate:ServingRelationship" source="crm_unif_app" target="crm_unif" id="rel-serves-5"/>
+    <element xsi:type="archimate:ServingRelationship" source="sgp" target="ti_unif" id="rel-serves-6"/>
+    <element xsi:type="archimate:ServingRelationship" source="sran" target="core_vg_parceria" id="rel-serves-7"/>
+    <element xsi:type="archimate:ServingRelationship" source="e_commerce_vg" target="core_vg_venda" id="rel-serves-8"/>
+    <element xsi:type="archimate:ServingRelationship" source="crm_unif_app" target="core_vg_venda" id="rel-serves-9"/>
+    <element xsi:type="archimate:ServingRelationship" source="sis_pedidos_zpe" target="core_zpe_venda" id="rel-serves-10"/>
+    <element xsi:type="archimate:ServingRelationship" source="crm_unif_app" target="core_zpe_venda" id="rel-serves-11"/>
+    <element xsi:type="archimate:ServingRelationship" source="sis_pedidos_zpe" target="core_zpe_fatura_entrega" id="rel-serves-12"/>
+    <element xsi:type="archimate:ServingRelationship" source="sis_dist_zpe" target="core_zpe_fatura_entrega" id="rel-serves-13"/>
+    <element xsi:type="archimate:ServingRelationship" source="sis_dist_zpe" target="core_zpe_estoque" id="rel-serves-14"/>
+    <element xsi:type="archimate:FlowRelationship" source="sis_pedidos_zpe" target="int_pedidos_erp" id="rel-flow-1"/>
+    <element xsi:type="archimate:FlowRelationship" source="int_pedidos_erp" target="erp_unif" id="rel-flow-2"/>
+    <element xsi:type="archimate:FlowRelationship" source="e_commerce_vg" target="int_vendas_crm" id="rel-flow-3"/>
+    <element xsi:type="archimate:FlowRelationship" source="sis_pedidos_zpe" target="int_vendas_crm" id="rel-flow-4"/>
+    <element xsi:type="archimate:FlowRelationship" source="int_vendas_crm" target="crm_unif_app" id="rel-flow-5"/>
+  </folder>
+
+  <folder name="Views" id="id-folder-views" type="diagrams">
+    <element xsi:type="archimate:ArchimateDiagramModel" name="Arquitetura Futura (Modelo Diversidade)" id="id-view-main">
+      <child xsi:type="archimate:Group" name="Camada Estratégia Unificada" id="view-group-1"> <bounds x="20" y="20" width="600" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-planejamento_estrategico_unif" archimateElement="planejamento_estrategico_unif"> <bounds x="30" y="50" width="250" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-marketing_unif" archimateElement="marketing_unif"> <bounds x="320" y="50" width="250" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Camada Suporte Unificado" id="view-group-2"> <bounds x="20" y="160" width="1250" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-financas_unif" archimateElement="financas_unif"> <bounds x="30" y="50" width="280" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-crm_unif" archimateElement="crm_unif"> <bounds x="330" y="50" width="280" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-juridico_contratos_unif" archimateElement="juridico_contratos_unif"> <bounds x="630" y="50" width="280" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-ti_unif" archimateElement="ti_unif"> <bounds x="930" y="50" width="280" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Core Business - Venda Geral" id="view-group-3"> <bounds x="20" y="300" width="600" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-core_vg_parceria" archimateElement="core_vg_parceria"> <bounds x="30" y="50" width="250" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-core_vg_venda" archimateElement="core_vg_venda"> <bounds x="320" y="50" width="250" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Core Business - Zé Pequeno Eletro" id="view-group-4"> <bounds x="640" y="300" width="900" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-core_zpe_venda" archimateElement="core_zpe_venda"> <bounds x="30" y="50" width="250" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-core_zpe_fatura_entrega" archimateElement="core_zpe_fatura_entrega"> <bounds x="310" y="50" width="250" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-core_zpe_estoque" archimateElement="core_zpe_estoque"> <bounds x="590" y="50" width="250" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Aplicações Unificadas/Mantidas" id="view-group-5"> <bounds x="20" y="440" width="1520" height="250"/>
+        <child xsi:type="archimate:DiagramObject" id="view-sgp" archimateElement="sgp"> <bounds x="30" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-erp_unif" archimateElement="erp_unif"> <bounds x="250" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-crm_unif_app" archimateElement="crm_unif_app"> <bounds x="470" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-sran" archimateElement="sran"> <bounds x="690" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-e_commerce_vg" archimateElement="e_commerce_vg"> <bounds x="910" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-sis_pedidos_zpe" archimateElement="sis_pedidos_zpe"> <bounds x="1130" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-sis_dist_zpe" archimateElement="sis_dist_zpe"> <bounds x="1330" y="50" width="180" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-int_pedidos_erp" archimateElement="int_pedidos_erp"> <bounds x="570" y="150" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-int_vendas_crm" archimateElement="int_vendas_crm"> <bounds x="820" y="150" width="200" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Group" name="Aplicações Removidas" id="view-group-6"> <bounds x="20" y="710" width="500" height="120"/>
+        <child xsi:type="archimate:DiagramObject" id="view-sis_fin_zpe" archimateElement="sis_fin_zpe" fillColor="#FFDDDD" lineColor="#990000"> <bounds x="30" y="50" width="200" height="55"/> </child>
+        <child xsi:type="archimate:DiagramObject" id="view-sis_cli_zpe" archimateElement="sis_cli_zpe" fillColor="#FFDDDD" lineColor="#990000"> <bounds x="260" y="50" width="200" height="55"/> </child>
+      </child>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-1" source="view-sgp" target="view-planejamento_estrategico_unif" archimateRelationship="rel-serves-1"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-2" source="view-sgp" target="view-marketing_unif" archimateRelationship="rel-serves-2"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-3" source="view-erp_unif" target="view-financas_unif" archimateRelationship="rel-serves-3"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-4" source="view-erp_unif" target="view-juridico_contratos_unif" archimateRelationship="rel-serves-4"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-5" source="view-crm_unif_app" target="view-crm_unif" archimateRelationship="rel-serves-5"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-6" source="view-sgp" target="view-ti_unif" archimateRelationship="rel-serves-6"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-7" source="view-sran" target="view-core_vg_parceria" archimateRelationship="rel-serves-7"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-8" source="view-e_commerce_vg" target="view-core_vg_venda" archimateRelationship="rel-serves-8"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-9" source="view-crm_unif_app" target="view-core_vg_venda" archimateRelationship="rel-serves-9"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-10" source="view-sis_pedidos_zpe" target="view-core_zpe_venda" archimateRelationship="rel-serves-10"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-11" source="view-crm_unif_app" target="view-core_zpe_venda" archimateRelationship="rel-serves-11"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-12" source="view-sis_pedidos_zpe" target="view-core_zpe_fatura_entrega" archimateRelationship="rel-serves-12"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-13" source="view-sis_dist_zpe" target="view-core_zpe_fatura_entrega" archimateRelationship="rel-serves-13"/>
+      <child xsi:type="archimate:Connection" id="view-rel-serves-14" source="view-sis_dist_zpe" target="view-core_zpe_estoque" archimateRelationship="rel-serves-14"/>
+      <child xsi:type="archimate:Connection" id="view-rel-flow-1" source="view-sis_pedidos_zpe" target="view-int_pedidos_erp" archimateRelationship="rel-flow-1"/>
+      <child xsi:type="archimate:Connection" id="view-rel-flow-2" source="view-int_pedidos_erp" target="view-erp_unif" archimateRelationship="rel-flow-2"/>
+      <child xsi:type="archimate:Connection" id="view-rel-flow-3" source="view-e_commerce_vg" target="view-int_vendas_crm" archimateRelationship="rel-flow-3"/>
+      <child xsi:type="archimate:Connection" id="view-rel-flow-4" source="view-sis_pedidos_zpe" target="view-int_vendas_crm" archimateRelationship="rel-flow-4"/>
+      <child xsi:type="archimate:Connection" id="view-rel-flow-5" source="view-int_vendas_crm" target="view-crm_unif_app" archimateRelationship="rel-flow-5"/>
+    </element>
+  </folder>
+</archimate:model>
